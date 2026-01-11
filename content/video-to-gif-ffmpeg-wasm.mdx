@@ -1,0 +1,105 @@
+---
+slug: "video-to-gif-ffmpeg-wasm"
+title: "How FFmpeg Converts Video to GIF"
+description: "A simple explanation of how FFmpeg works internally, explained through building a Video to GIF converter using FFmpeg WASM."
+image: "https://images.unsplash.com/photo-1687603921109-46401b201195?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+date: "2025-05-10"
+tags: ["FFmpeg", "WASM", "React", "Video Processing"]
+category: "Video Engineering"
+author: "Aarish Mansur"
+---
+
+I still remember when I had completed my React playlist and wanted to build a project.  
+Most project ideas felt boring — school management systems, counters, todo apps.
+
+I wanted to build something **unique**.
+
+That’s when I came across a **Video to GIF converter** using the **FFmpeg WASM library**.  
+I was excited, and I actually built it.
+
+Project link: **Gifity**
+
+---
+
+I won’t deep dive into who made FFmpeg, why it was made, or its pros and cons — you can search that on Google.
+
+In this blog, I’ll explain **how FFmpeg works internally** and how it converts one file type into another.
+
+In simple terms, FFmpeg works in **5 steps**.
+
+---
+
+## 1. Demuxing
+
+Demuxing means FFmpeg uses **demuxers** to split your input file into multiple streams.
+
+A stream is simply a continuous flow of data inside a media file, such as:
+- video stream
+- audio stream
+
+---
+
+## 2. Decoding
+
+In this step, the input file is converted into **raw frames**:
+- Video → raw pixel frames
+- Audio → raw PCM samples
+
+Each video frame is basically an image.  
+Most editing and processing can only happen on this raw data.
+
+---
+
+## 3. Filtering
+
+Filtering receives raw data from the decoder and sends filtered output to the encoder.
+
+This step can be optional.
+
+Common uses:
+- resizing
+- deinterlacing (fixing combed images to make them clearer)
+
+---
+
+## 4. Encoding
+
+Here, raw data is converted into **compressed packets**.
+
+Encoding is usually **lossy**, meaning quality is reduced to decrease file size.  
+Some encoders are lossless, but they produce much larger files.
+
+---
+
+## 5. Muxing
+
+This is the final stage.
+
+Muxing repackages all processed streams back into **one single output file**, keeping everything in sync.
+
+---
+
+## Example FFmpeg Command
+
+```bash
+ffmpeg -i input.mkv -vf "scale=1280:720" -c:v libx265 -c:a aac output.mp4
+```
+
+### What happens internally:
+
+- **Demuxing**: input.mkv splits into video + audio streams  
+- **Decoding**: video → raw frames, audio → raw PCM samples  
+- **Filtering**: video resized to 1280×720  
+- **Encoding**: video → H.265 (HEVC), audio → AAC  
+- **Muxing**: final MP4 file → output.mp4  
+
+---
+
+If you’ve read this far, thank you for taking the time to read my blog.
+
+This is my **first blog**, so there might be mistakes — technical or grammatical.  
+I’m open to suggestions and corrections.
+
+You can follow me; I’ll be writing more tech blogs.
+
+dattebayo 🌟
