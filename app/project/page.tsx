@@ -80,7 +80,7 @@ export default function ProjectsPage() {
                 {project.description}
               </p>
 
-              {/* Technologies */}
+              
               <div className="space-y-2">
                 <p className="text-[9px] font-black text-gray-600 uppercase tracking-widest">Technologies</p>
                 <div className="flex flex-wrap gap-2">
@@ -96,14 +96,7 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <div className="flex justify-center pt-6">
-        <Link
-          href="/project"
-          className="px-6 py-2 rounded-full border border-white/15 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:border-white/30 hover:text-white transition"
-        >
-          View all projects
-        </Link>
-      </div>
+      
     </div>
   )
 }
