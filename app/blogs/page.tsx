@@ -40,7 +40,7 @@ export default function AllBlogsPage() {
                                 {blog.title}
                             </h3>
 
-                            <p className="text-gray-400 text-[10px] leading-relaxed line-clamp-2 opacity-70">
+                            <p className="text-gray-400 text-sm leading-relaxed">
                                 {blog.description}
                             </p>
 

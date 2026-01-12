@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+This is a modern, high-performance portfolio built with [Next.js](https://nextjs.org), [Tailwind CSS](https://tailwindcss.com), and [MDX](https://mdxjs.com/).
+
+##  Getting Started
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##  Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/`: Next.js App Router pages and layouts.
+  - `app/blogs/`: Blog listing and individual post pages.
+  - `app/project/`: Projects showcase page.
+  - `app/experience/`: Contributions and experience page.
+- `content/`: MDX files for blog posts.
+- `components/`: Reusable UI components.
+- `lib/`: Utility functions, data, and MDX processing logic.
+- `public/`: Static assets like images and resume.
 
-## Learn More
+##  How to Add Blogs
 
-To learn more about Next.js, take a look at the following resources:
+1. Create a new `.mdx` file in the `content/` directory.
+2. Add frontmatter at the top of the file:
+   ```md
+   ---
+   title: "Your Blog Title"
+   description: "A short description of your blog post"
+   date: "2024-03-20"
+   image: "/blog-image.jpg"
+   tags: ["React", "Next.js"]
+   ---
+   ```
+3. Your blog will automatically appear on the `/blogs` page and the home page.
+4. Routing is handled dynamically at `/blogs/[slug]`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+##  How to Add Projects
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Open `lib/data.ts`.
+2. Add a new project object to the `PROJECTS` array:
+   ```typescript
+   {
+     name: "Project Name",
+     description: "Project description",
+     live: "https://live-link.com",
+     github: "https://github.com/your-repo",
+     video: "/project-video.mp4", // Optional
+     technologies: ["Next.js", "Tailwind"]
+   }
+   ```
+3. Projects are displayed on the `/project` page and featured on the home page.
 
-## Deploy on Vercel
+##  Styling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project uses Tailwind CSS for styling. Global styles can be found in `app/globals.css`. It features a dark-themed, glassmorphic design with smooth animations.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+##  License
+
+This project is licensed under the MIT License.
