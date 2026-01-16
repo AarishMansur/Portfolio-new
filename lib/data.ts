@@ -34,7 +34,7 @@ export const CONTRIBUTIONS = [
 export const PROJECTS = [
     {
         name: "Drew",
-        description: "Drew is a lightweight diagramming tool.You can Draw Shapes,edit,move them around. All while syncing with Other User",
+        description: "Drew is a lightweight diagramming tool.You can Draw Shapes,edit,move them around. All while syncing with Other Users",
         video: "https://res.cloudinary.com/drvcsdg83/video/upload/v1764928960/Drew_a4cvnp.mp4",
         github: "https://github.com/AarishMansur/Drew-",
         live: "https://drew-ecru.vercel.app/",
@@ -59,7 +59,7 @@ export const PROJECTS = [
     },
     {
         name: "Meaning of Life",
-        description: "High-end music streaming clone with playlist management, real-time search, and premium audio playback features.",
+        description: "Meaning of Life is an component which highlights the Gsap scrollTrigger animations and smoothly animated and merges divs into one on scroll",
         video: "https://res.cloudinary.com/drvcsdg83/video/upload/v1768223684/cursorful-video-1768223579645_uo2ilm.mp4",
         github: "https://github.com/AarishMansur/Meaning-of-Life",
         live: "https://meaning-of-life-murex.vercel.app/",
@@ -67,7 +67,7 @@ export const PROJECTS = [
     },
     {
         name: "Arcane Fan website",
-        description: "High-end music streaming clone with playlist management, real-time search, and premium audio playback features.",
+        description: "This is an Arcane Fan website in which Piltover Story is covered with the help of ElvenLabs and introduced main Characters",
         video: "https://res.cloudinary.com/drvcsdg83/video/upload/v1768223977/cursorful-video-1768223861692_aigqci.mp4",
         github: "https://github.com/AarishMansur/Arcane",
         live: "https://arcane-orcin-delta.vercel.app/",
