@@ -33,6 +33,15 @@ export const CONTRIBUTIONS = [
 
 export const PROJECTS = [
     {
+     name: "Mistake Count",
+        description: "Mistake Count is a simple tracking tool. You can log your mistakes, analyze patterns, and improve over time all while learning from everyone mistakes",
+        video: "https://res.cloudinary.com/drvcsdg83/video/upload/v1773852456/DqqkFdeHEGd1uRW8_m2qrmg.mp4",
+        github: "https://github.com/AarishMansur/Mistake-Count",
+        live: "https://mistake-count-web.vercel.app/",
+        technologies: ["Nextjs", "Express", "PostgresSql", "Prisma", "TailwindCSS"],
+    },
+
+    {
         name: "Drew",
         description: "Drew is a lightweight diagramming tool.You can Draw Shapes,edit,move them around. All while syncing with Other Users",
         video: "https://res.cloudinary.com/drvcsdg83/video/upload/v1764928960/Drew_a4cvnp.mp4",
