@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import SharedLayout from "@/components/SharedLayout";
+import Script from "next/script";
 
 
 const inter = Inter({
@@ -28,6 +29,11 @@ export default function RootLayout({
         <SharedLayout>
           {children}
         </SharedLayout>
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+        />
       </body>
     </html>
   );

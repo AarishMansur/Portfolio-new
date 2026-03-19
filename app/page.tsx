@@ -3,6 +3,7 @@ import { CONTRIBUTIONS, PROJECTS } from '@/lib/data'
 import { getAllBlogs } from '@/lib/mdx'
 import Image from 'next/image'
 import Link from 'next/link'
+import VisitorCounter from '@/components/VisitorCounter'
 
 export default function Home() {
   const blogs = getAllBlogs();
@@ -327,6 +328,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section id="footer" className="animate-blur-fade [animation-delay:800ms] pt-4 pb-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+          <VisitorCounter />
+        </div>
+      </section>
     </div>
-  )
+  );
 }
