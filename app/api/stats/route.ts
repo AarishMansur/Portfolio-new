@@ -18,7 +18,7 @@ export async function GET() {
                 'x-umami-api-key': apiToken,
                 'Accept': 'application/json',
             },
-            next: { revalidate: 600 }
+            next: { revalidate: 60 }
         });
 
         if (!response.ok) {
