@@ -73,7 +73,7 @@ const VisitorCounter: React.FC<VisitorCounterProps> = ({ className }) => {
                 </span>
                 <p className="text-xs font-medium text-white/90 whitespace-nowrap">
                     You are the <span ref={countRef} className="text-sm font-bold text-white font-mono bg-white/10 px-1.5 py-0.5 rounded ml-0.5">
-                        {count !== null ? 0 : "..."}
+                        {count !== null ? count : "..."}
                     </span> visitor
                 </p>
             </div>
