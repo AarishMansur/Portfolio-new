@@ -61,7 +61,7 @@ const VisitorCounter: React.FC<VisitorCounterProps> = ({ className }) => {
             className={`group relative flex items-center gap-4 px-5 py-2.5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:bg-white/10 ${className}`}
         >
             <div className="absolute inset-0 bg-green-500/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
+
             <div className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-40 animate-ping"></span>
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]"></span>

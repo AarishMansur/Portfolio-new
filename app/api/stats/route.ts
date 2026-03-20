@@ -6,7 +6,7 @@ export async function GET() {
 
     try {
         const res = await fetch(
-            `https://api.umami.is/v1/websites/${websiteId}/metrics?type=visitors`,
+            `https://api.umami.is/v1/websites/${websiteId}/stats?startAt=0&endAt=${Date.now()}`,
             {
                 headers: {
                     Authorization: `Bearer ${apiToken}`,
