@@ -277,7 +277,12 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
         <>
             <div className={`relative w-full min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black ${isMenuOpen ? 'overflow-hidden' : 'overflow-y-auto'}`}>
 
-                <div className="fixed inset-0 pointer-events-none opacity-10 z-50 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150" />
+                <div className="fixed inset-0 pointer-events-none z-0">
+                    <div className="absolute inset-0 bg-grid-lines opacity-35" />
+                    <div className="absolute inset-0 bg-diagonal-lines opacity-25" />
+                    <div className="absolute inset-0 bg-cross-lines opacity-25" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,transparent_42%,rgba(255,255,255,0.03)_100%)]" />
+                </div>
 
                 <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
