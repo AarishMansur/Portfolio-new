@@ -24,6 +24,7 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
     const targetHighlighterWidth = useRef(0);
 
     const animationFrameRef = useRef<number | null>(null);
+    const timeoutRefs = useRef<number[]>([]);
 
     const links = [
         { text: 'HOME', href: '/' },
@@ -31,21 +32,6 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
         { text: 'BLOGS', href: '/blogs' },
         { text: 'EXPERIENCE', href: '/experience' },
     ];
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setTimeout(() => {
-                initializeHighlighter();
-            }, 100);
-            animate();
-        }
-
-        return () => {
-            if (animationFrameRef.current) {
-                cancelAnimationFrame(animationFrameRef.current);
-            }
-        };
-    }, []);
 
     const initializeHighlighter = () => {
         const firstLink = document.querySelector('.menu-link-text');
@@ -69,49 +55,93 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
         return start + (end - start) * factor;
     };
 
-    const animate = () => {
-        currentX.current = lerp(currentX.current, targetX.current, 0.1);
-        currentHighlighterX.current = lerp(currentHighlighterX.current, targetHighlighterX.current, 0.15);
-        currentHighlighterWidth.current = lerp(currentHighlighterWidth.current, targetHighlighterWidth.current, 0.15);
-
-        if (linksWrapperRef.current) {
-            linksWrapperRef.current.style.transform = `translateX(${currentX.current}px)`;
-        }
-
-        if (highlighterRef.current) {
-            highlighterRef.current.style.transform = `translateX(${currentHighlighterX.current}px)`;
-            highlighterRef.current.style.width = `${currentHighlighterWidth.current}px`;
-        }
-
-        animationFrameRef.current = requestAnimationFrame(animate);
+    const clearQueuedTimeouts = () => {
+        timeoutRefs.current.forEach((timeoutId) => window.clearTimeout(timeoutId));
+        timeoutRefs.current = [];
     };
+
+    const queueTimeout = (callback: () => void, delay: number) => {
+        const timeoutId = window.setTimeout(callback, delay);
+        timeoutRefs.current.push(timeoutId);
+    };
+
+    useEffect(() => {
+        if (!isMenuOpen || typeof window === 'undefined' || window.innerWidth < 1000) {
+            if (animationFrameRef.current) {
+                cancelAnimationFrame(animationFrameRef.current);
+                animationFrameRef.current = null;
+            }
+            return;
+        }
+
+        queueTimeout(() => {
+            initializeHighlighter();
+        }, 100);
+
+        const tick = () => {
+            currentX.current = lerp(currentX.current, targetX.current, 0.1);
+            currentHighlighterX.current = lerp(currentHighlighterX.current, targetHighlighterX.current, 0.15);
+            currentHighlighterWidth.current = lerp(currentHighlighterWidth.current, targetHighlighterWidth.current, 0.15);
+
+            if (linksWrapperRef.current) {
+                linksWrapperRef.current.style.transform = `translateX(${currentX.current}px)`;
+            }
+
+            if (highlighterRef.current) {
+                highlighterRef.current.style.transform = `translateX(${currentHighlighterX.current}px)`;
+                highlighterRef.current.style.width = `${currentHighlighterWidth.current}px`;
+            }
+
+            animationFrameRef.current = requestAnimationFrame(tick);
+        };
+
+        tick();
+
+        return () => {
+            if (animationFrameRef.current) {
+                cancelAnimationFrame(animationFrameRef.current);
+                animationFrameRef.current = null;
+            }
+        };
+    }, [isMenuOpen]);
+
+    useEffect(() => {
+        return () => {
+            clearQueuedTimeouts();
+
+            if (animationFrameRef.current) {
+                cancelAnimationFrame(animationFrameRef.current);
+            }
+        };
+    }, []);
 
     const toggleMenu = () => {
         if (isAnimating) return;
 
+        clearQueuedTimeouts();
         setIsAnimating(true);
 
         if (!isMenuOpen) {
 
             setIsMenuOpen(true);
 
-            setTimeout(() => {
+            queueTimeout(() => {
                 const linkElements = document.querySelectorAll('.menu-link');
                 linkElements.forEach((link, index) => {
-                    setTimeout(() => {
+                    queueTimeout(() => {
                         (link as HTMLElement).style.transform = 'translateY(0)';
                         (link as HTMLElement).style.opacity = '1';
                     }, index * 80);
                 });
 
                 if (highlighterRef.current) {
-                    setTimeout(() => {
+                    queueTimeout(() => {
                         highlighterRef.current!.style.bottom = '0';
                         highlighterRef.current!.style.opacity = '1';
                     }, 400);
                 }
 
-                setTimeout(() => setIsAnimating(false), 1000);
+                queueTimeout(() => setIsAnimating(false), 1000);
             }, 50);
         } else {
 
@@ -126,7 +156,7 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
                 highlighterRef.current.style.opacity = '0';
             }
 
-            setTimeout(() => {
+            queueTimeout(() => {
                 setIsMenuOpen(false);
                 setIsAnimating(false);
                 currentX.current = 0;
@@ -186,13 +216,13 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
             const bottomChars = bottomSpan.querySelectorAll('.char');
 
             topChars.forEach((char, index) => {
-                setTimeout(() => {
+                queueTimeout(() => {
                     (char as HTMLElement).style.transform = 'translateY(-100%)';
                 }, index * 20);
             });
 
             bottomChars.forEach((char, index) => {
-                setTimeout(() => {
+                queueTimeout(() => {
                     (char as HTMLElement).style.transform = 'translateY(0%)';
                 }, index * 20);
             });
@@ -211,13 +241,13 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
             const bottomChars = bottomSpan.querySelectorAll('.char');
 
             topChars.forEach((char, index) => {
-                setTimeout(() => {
+                queueTimeout(() => {
                     (char as HTMLElement).style.transform = 'translateY(0%)';
                 }, index * 20);
             });
 
             bottomChars.forEach((char, index) => {
-                setTimeout(() => {
+                queueTimeout(() => {
                     (char as HTMLElement).style.transform = 'translateY(100%)';
                 }, index * 20);
             });

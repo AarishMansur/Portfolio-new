@@ -1,6 +1,7 @@
 import { Globe, ArrowLeft } from 'lucide-react'
 import { PROJECTS } from '@/lib/data'
 import Link from 'next/link'
+import ProjectVideo from '@/components/ProjectVideo'
 
 export default function ProjectsPage() {
   return (
@@ -35,12 +36,9 @@ export default function ProjectsPage() {
               <div className="absolute inset-0 bg-linear-to-t from-[#0A0A0A] via-transparent to-transparent z-10" />
 
               {project.video ? (
-                <video
+                <ProjectVideo
                   src={project.video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                  name={project.name}
                   className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-700"
                 />
               ) : (

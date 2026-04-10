@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
 
 interface VisitorCounterProps {
     className?: string;
@@ -32,7 +31,19 @@ const VisitorCounter: React.FC<VisitorCounterProps> = ({ className }) => {
     }, []);
 
     useEffect(() => {
-        if (count !== null && countRef.current) {
+        let isMounted = true;
+
+        const animateCounter = async () => {
+            if (count === null || !countRef.current) {
+                return;
+            }
+
+            const { gsap } = await import('gsap');
+
+            if (!isMounted || !countRef.current) {
+                return;
+            }
+
             gsap.fromTo(countRef.current,
                 { innerText: 0 },
                 {
@@ -53,6 +64,12 @@ const VisitorCounter: React.FC<VisitorCounterProps> = ({ className }) => {
                 { opacity: 1, scale: 1, y: 0, duration: 1.2, delay: 0.2, ease: "power4.out" }
             );
         }
+
+        animateCounter();
+
+        return () => {
+            isMounted = false;
+        };
     }, [count]);
 
     return (

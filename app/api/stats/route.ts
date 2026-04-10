@@ -14,17 +14,16 @@ export async function GET() {
                 headers: {
                     Authorization: `Bearer ${apiToken}`,
                 },
-                cache: "no-store",
+                next: { revalidate: 1800 },
             }
         );
 
         const data = await res.json();
-        console.log("UMAMI DATA:", data);
 
         return NextResponse.json({
             visitors: data.visitors || data.value || 0,
         });
-    } catch (err) {
+    } catch {
         return NextResponse.json({ visitors: -1 });
     }
 }

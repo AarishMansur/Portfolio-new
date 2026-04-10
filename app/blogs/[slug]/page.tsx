@@ -1,7 +1,7 @@
 import { getBlogBySlug, getAllBlogs } from "@/lib/mdx";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Calendar, User, Clock } from "lucide-react";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import Image from "next/image";
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { ComponentProps } from 'react';
@@ -164,7 +164,7 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
             {meta.author && (
               <div className="flex items-center gap-2 text-gray-300">
                 <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600">
-                  <Image src='/character.jpg' alt="Author pic" width={400} height={400} className="rounded-full" />
+                  <Image src='/character.jpg' alt="Author pic" width={32} height={32} className="rounded-full" />
                 </div>
                 <span className="text-sm font-medium">{meta.author}</span>
               </div>
@@ -199,6 +199,8 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
               alt={meta.title}
               width={1200}
               height={600}
+              sizes="(max-width: 768px) 100vw, 768px"
+              quality={75}
               className="rounded-xl object-cover"
               priority
             />

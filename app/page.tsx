@@ -3,7 +3,8 @@ import { CONTRIBUTIONS, PROJECTS } from '@/lib/data'
 import { getAllBlogs } from '@/lib/mdx'
 import Image from 'next/image'
 import Link from 'next/link'
-import VisitorCounter from '@/components/VisitorCounter'
+import DeferredVisitorCounter from '@/components/DeferredVisitorCounter'
+import ProjectVideo from '@/components/ProjectVideo'
 
 export default function Home() {
   const blogs = getAllBlogs();
@@ -17,6 +18,9 @@ export default function Home() {
             src={"https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop"}
             alt="Banner Image"
             fill
+            priority
+            sizes="(max-width: 768px) 100vw, 896px"
+            quality={70}
             className="object-cover opacity-60 transition-transform duration-1000 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-80" />
@@ -36,6 +40,7 @@ export default function Home() {
               alt="Aarish"
               width={100}
               height={100}
+              priority
               className="rounded-full aspect-square object-cover border border-white/10 shadow-2xl w-16 h-16 md:w-24 md:h-24 "
             />
           </div>
@@ -167,12 +172,9 @@ export default function Home() {
                   <div className="absolute inset-0 bg-linear-to-t from-[#0A0A0A] via-transparent to-transparent z-10" />
 
                   {project.video ? (
-                    <video
+                    <ProjectVideo
                       src={project.video}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
+                      name={project.name}
                       className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-700"
                     />
                   ) : (
@@ -275,6 +277,8 @@ export default function Home() {
                     src={blog.image || "/character.jpg"}
                     alt={blog.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 448px"
+                    quality={70}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
@@ -331,7 +335,7 @@ export default function Home() {
 
       <section id="footer" className="animate-blur-fade [animation-delay:800ms] pt-4 pb-8">
         <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-          <VisitorCounter />
+          <DeferredVisitorCounter />
         </div>
       </section>
     </div>
