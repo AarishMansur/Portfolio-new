@@ -23,18 +23,18 @@ export default function AllBlogsPage() {
                     <Link
                         key={blog.slug}
                         href={`/blogs/${blog.slug}`}
-                        className="group flex flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0A0A] transition-all duration-300 hover:border-white/20"
+                        className="group flex flex-col overflow-hidden rounded-4xl border border-white/10 bg-[#0A0A0A] transition-all duration-300 hover:border-white/20"
                     >
-                        <div className="relative aspect-[16/9] w-full overflow-hidden">
+                        <div className="relative aspect-video w-full overflow-hidden">
                             <Image
                                 src={blog.image || "/character.jpg"}
                                 alt={blog.title}
                                 fill
                                 sizes="(max-width: 768px) 100vw, 448px"
-                                quality={70}
+                                quality={75}
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
+                            <div className="absolute inset-0 bg-linear-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
                         </div>
 
                         <div className="flex flex-col p-6 gap-y-4">

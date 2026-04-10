@@ -21,7 +21,7 @@ export default function Home() {
             fill
             priority
             sizes="(max-width: 768px) 100vw, 896px"
-            quality={70}
+            quality={75}
             className="object-cover opacity-60 transition-transform duration-1000 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-80" />
@@ -42,6 +42,7 @@ export default function Home() {
               width={100}
               height={100}
               priority
+              sizes="(max-width: 768px) 64px, 96px"
               className="rounded-full aspect-square object-cover border border-white/10 shadow-2xl w-16 h-16 md:w-24 md:h-24 "
             />
           </div>

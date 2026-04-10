@@ -60,7 +60,7 @@ const components = {
           style={vscDarkPlus}
           language={language}
           PreTag="div"
-          className="rounded-xl !bg-[#0d1117] border border-white/10 shadow-2xl my-6"
+          className="rounded-xl bg-[#0d1117]! border border-white/10 shadow-2xl my-6"
           customStyle={{
             margin: 0,
             padding: '1.5rem',
@@ -163,8 +163,8 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
             {/* Author */}
             {meta.author && (
               <div className="flex items-center gap-2 text-gray-300">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600">
-                  <Image src='/character.jpg' alt="Author pic" width={32} height={32} className="rounded-full" />
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-linear-to-br from-blue-500 to-purple-600">
+                  <Image src='/character.jpg' alt="Author pic" width={32} height={32} sizes="32px" className="rounded-full" />
                 </div>
                 <span className="text-sm font-medium">{meta.author}</span>
               </div>
