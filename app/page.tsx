@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import DeferredVisitorCounter from '@/components/DeferredVisitorCounter'
 import ProjectVideo from '@/components/ProjectVideo'
+import TechIcon from '@/components/TechIcon'
 
 export default function Home() {
   const blogs = getAllBlogs();
@@ -48,8 +49,8 @@ export default function Home() {
             <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-6xl">
               Hey, I &apos;m Aarish 👋
             </h1>
-            <p className="max-w-150 text-white text-sm md:text-xl leading-relaxed">
-              A  Developer in his 20&apos;s who can build <span className='line-through decoration-2 decoration-white text-gray-400 '>Website</span> Best Website
+            <p className="max-w-150 text-white text-sm md:text-2xl leading-relaxed flex flex-wrap items-center gap-x-2 mt-2">
+              I build Things with <TechIcon name="React" size="w-5 h-5 md:w-8 md:h-8" className="p-0! bg-transparent! border-0!" /> and <TechIcon name="Ts" size="w-5 h-5 md:w-8 md:h-8" className="p-0! bg-transparent! border-0!" /> — &nbsp;They work.
             </p>
 
             <div className="flex flex-col gap-4 pt-4">
@@ -143,14 +144,14 @@ export default function Home() {
       <section id="skills" className="animate-blur-fade [animation-delay:300ms]">
         <div className="space-y-4">
           <h2 className="text-xl font-bold tracking-tight">Skills and Tools</h2>
-          <div className="flex flex-wrap gap-2">
-            {["React", "TypeScript", "Javascript", "Tailwind CSS", "Framer motion", "GSAP", "Git", "Github",].map((skill) => (
-              <span
+          <div className="flex flex-wrap gap-3">
+            {["React", "TypeScript", "Javascript", "Next.js", "Tailwind CSS", "Framer motion", "GSAP", "Git", "Github",].map((skill) => (
+              <TechIcon
                 key={skill}
-                className="px-3 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10 transition-colors cursor-default"
-              >
-                {skill}
-              </span>
+                name={skill}
+                showText
+                className="px-4 py-2 text-xs font-medium rounded-xl bg-white/2 border border-white/5 text-gray-400 hover:bg-white/5 hover:border-white/10 transition-all duration-300"
+              />
             ))}
           </div>
         </div>
@@ -215,11 +216,9 @@ export default function Home() {
 
                   <div className="space-y-2">
                     <p className="text-[9px] font-black text-gray-600 uppercase tracking-widest">Technologies</p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-3">
                       {project.technologies.slice(0, 5).map((tech) => (
-                        <span key={tech} className="px-2 py-1 text-[10px] font-medium rounded-md bg-white/5 border border-white/10 text-gray-400 whitespace-nowrap">
-                          {tech}
-                        </span>
+                        <TechIcon key={tech} name={tech} className="hover:opacity-80 transition-opacity" />
                       ))}
                     </div>
                   </div>
@@ -278,7 +277,7 @@ export default function Home() {
                     alt={blog.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 448px"
-                    quality={70}
+                    quality={75}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />

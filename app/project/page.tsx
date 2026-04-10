@@ -2,6 +2,7 @@ import { Globe, ArrowLeft } from 'lucide-react'
 import { PROJECTS } from '@/lib/data'
 import Link from 'next/link'
 import ProjectVideo from '@/components/ProjectVideo'
+import TechIcon from '@/components/TechIcon'
 
 export default function ProjectsPage() {
   return (
@@ -81,11 +82,9 @@ export default function ProjectsPage() {
               
               <div className="space-y-2">
                 <p className="text-[9px] font-black text-gray-600 uppercase tracking-widest">Technologies</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {project.technologies.map((tech) => (
-                    <span key={tech} className="px-2 py-1 text-[10px] font-medium rounded-md bg-white/5 border border-white/10 text-gray-400 whitespace-nowrap">
-                      {tech}
-                    </span>
+                    <TechIcon key={tech} name={tech} className="hover:opacity-80 transition-opacity" />
                   ))}
                 </div>
               </div>
