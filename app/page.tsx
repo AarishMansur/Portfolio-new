@@ -50,8 +50,22 @@ export default function Home() {
             <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-6xl">
               Hey, I &apos;m Aarish 👋
             </h1>
-            <p className="max-w-150 text-white text-sm md:text-2xl leading-relaxed flex flex-wrap items-center gap-x-2 mt-2">
-              I build Things with <TechIcon name="React" size="w-5 h-5 md:w-8 md:h-8" className="p-0! bg-transparent! border-0!" /> and <TechIcon name="Ts" size="w-5 h-5 md:w-8 md:h-8" className="p-0! bg-transparent! border-0!" /> — &nbsp;They work.
+            <p className="max-w-150 text-white text-sm md:text-2xl leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-3 mt-4">
+              I build Things with
+              <TechIcon
+                name="React"
+                showText
+                size="w-5 h-5 md:w-6 md:h-6"
+                className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-dashed border-white/30 rounded-lg bg-white/10 text-xs md:text-sm font-medium"
+              />
+              and
+              <TechIcon
+                name="TypeScript"
+                showText
+                size="w-5 h-5 md:w-6 md:h-6"
+                className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-dashed border-white/30 rounded-lg bg-white/10 text-xs md:text-sm font-medium"
+              />
+              — They work.
             </p>
 
             <div className="flex flex-col gap-4 pt-4">

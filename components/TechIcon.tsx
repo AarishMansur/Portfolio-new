@@ -52,9 +52,10 @@ interface TechIconProps {
   showText?: boolean;
   className?: string;
   size?: string;
+  useBrandBorder?: boolean;
 }
 
-export default function TechIcon({ name, showText = false, className = "", size = "w-4 h-4" }: TechIconProps) {
+export default function TechIcon({ name, showText = false, className = "", size = "w-4 h-4", useBrandBorder = false }: TechIconProps) {
   const normalizedName = name.toLowerCase();
   const tech = ICON_MAP[normalizedName as keyof typeof ICON_MAP];
 
@@ -71,13 +72,16 @@ export default function TechIcon({ name, showText = false, className = "", size 
   const IconComponent = tech.icon;
 
   return (
-    <span className={`flex items-center gap-2 group/icon ${className}`}>
+    <span 
+      className={`flex items-center gap-2 group/icon ${className}`}
+      style={useBrandBorder ? { borderColor: `${tech.color}44`, backgroundColor: `${tech.color}11` } : {}}
+    >
       <IconComponent
         style={{ color: tech.color }}
-        className={`${size} transition-transform duration-300 group-hover/icon:scale-125`}
+        className={`${size} transition-transform duration-300`}
       />
       {showText && (
-        <span className="text-xs text-gray-400 group-hover/icon:text-white transition-colors duration-300">
+        <span className={`text-xs text-white/90 transition-colors duration-300`}>
           {name}
         </span>
       )}

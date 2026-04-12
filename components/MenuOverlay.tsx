@@ -107,7 +107,7 @@ const MenuOverlay = ({ isMenuOpen, toggleMenu }: MenuOverlayProps) => {
         };
     }, [isMenuOpen]);
 
-    // Handle menu trigger animations (entry/exit)
+
     useEffect(() => {
         if (isMenuOpen) {
             queueTimeout(() => {
