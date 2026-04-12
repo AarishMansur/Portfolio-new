@@ -73,7 +73,7 @@ export default function TechIcon({ name, showText = false, className = "", size 
 
   return (
     <span 
-      className={`flex items-center gap-2 group/icon ${className}`}
+      className={`flex items-center gap-2 group/icon cursor-default select-none ${className}`}
       style={useBrandBorder ? { borderColor: `${tech.color}44`, backgroundColor: `${tech.color}11` } : {}}
     >
       <IconComponent
