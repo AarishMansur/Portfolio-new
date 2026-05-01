@@ -28,6 +28,12 @@ export const CONTRIBUTIONS = [
         url: "https://github.com/excalidraw/excalidraw/pull/10515",
         merged: false,
         date: "Dec 2025"
+    },
+    {
+       name: "Used catalog presentation for API titles",
+        url: "https://github.com/backstage/backstage/pull/33838",
+        merged: true,
+        date: "April 2025 " 
     }
 ];
 
