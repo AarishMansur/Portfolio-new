@@ -33,7 +33,7 @@ export const CONTRIBUTIONS = [
        name: "Used catalog presentation for API titles",
         url: "https://github.com/backstage/backstage/pull/33838",
         merged: true,
-        date: "April 2025 " 
+        date: "April 2026 " 
     }
 ];
 
