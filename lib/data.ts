@@ -1,9 +1,15 @@
 export const CONTRIBUTIONS = [
     {
-        name: "Fix dropdown width does not match trigger width on window resize",
-        url: "https://github.com/mui/material-ui/pull/47526",
+        name: "Verify long-form PRISM DID state hash",
+        url: "https://github.com/hyperledger-identus/sdk-ts/pull/582",
         merged: true,
-        date: "Dec 2025"
+        date: "May 2026 "
+    },
+    {
+        name: "Used catalog presentation for API titles",
+        url: "https://github.com/backstage/backstage/pull/33838",
+        merged: true,
+        date: "April 2026 "
     },
     {
         name: "Allow disabling auto focusing the first input of newly added row ",
@@ -12,15 +18,15 @@ export const CONTRIBUTIONS = [
         date: "Jan 2026"
     },
     {
-        name: "typescript date mapping",
-        url: "https://github.com/asyncapi/modelina/pull/2393",
+        name: "Fix dropdown width does not match trigger width on window resize",
+        url: "https://github.com/mui/material-ui/pull/47526",
         merged: true,
         date: "Dec 2025"
     },
     {
-        name: "DefinePlugin error reporting and evaluation safety",
-        url: "https://github.com/webpack/webpack/pull/20260",
-        merged: false,
+        name: "typescript date mapping",
+        url: "https://github.com/asyncapi/modelina/pull/2393",
+        merged: true,
         date: "Dec 2025"
     },
     {
@@ -30,16 +36,16 @@ export const CONTRIBUTIONS = [
         date: "Dec 2025"
     },
     {
-       name: "Used catalog presentation for API titles",
-        url: "https://github.com/backstage/backstage/pull/33838",
-        merged: true,
-        date: "April 2026 " 
-    }
+        name: "DefinePlugin error reporting and evaluation safety",
+        url: "https://github.com/webpack/webpack/pull/20260",
+        merged: false,
+        date: "Dec 2025"
+    },
 ];
 
 export const PROJECTS = [
     {
-     name: "Mistake Count",
+        name: "Mistake Count",
         description: "Mistake Count is a simple tracking tool. You can log your mistakes, analyze patterns, and improve over time all while learning from everyone mistakes",
         video: "https://res.cloudinary.com/drvcsdg83/video/upload/v1773852456/DqqkFdeHEGd1uRW8_m2qrmg.mp4",
         github: "https://github.com/AarishMansur/Mistake-Count",
