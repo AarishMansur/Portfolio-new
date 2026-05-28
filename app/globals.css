@@ -21,6 +21,15 @@
   }
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 body {
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 35%),
@@ -37,45 +46,37 @@ body {
   }
 
   .bg-diagonal-lines {
-    background-image: repeating-linear-gradient(
-      -32deg,
-      transparent 0,
-      transparent 14px,
-      rgba(255, 255, 255, 0.03) 14px,
-      rgba(255, 255, 255, 0.03) 15px,
-      transparent 15px,
-      transparent 30px
-    );
+    background-image: repeating-linear-gradient(-32deg,
+        transparent 0,
+        transparent 14px,
+        rgba(255, 255, 255, 0.03) 14px,
+        rgba(255, 255, 255, 0.03) 15px,
+        transparent 15px,
+        transparent 30px);
   }
 
   .bg-cross-lines {
     background-image:
-      repeating-linear-gradient(
-        32deg,
+      repeating-linear-gradient(32deg,
         transparent 0,
         transparent 22px,
         rgba(255, 255, 255, 0.018) 22px,
         rgba(255, 255, 255, 0.018) 23px,
         transparent 23px,
-        transparent 46px
-      );
+        transparent 46px);
   }
 
   .animate-blur-fade {
     animation: blur-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  @keyframes blur-fade {
-    0% {
-      opacity: 0;
-      filter: blur(10px);
-      transform: translateY(10px);
+  @keyframes reverse-spin {
+    from {
+      transform: translate(-50%, -50%) rotate(360deg);
     }
 
-    100% {
-      opacity: 1;
-      filter: blur(0);
-      transform: translateY(0);
+    to {
+      transform: translate(-50%, -50%) rotate(0deg);
     }
   }
 }

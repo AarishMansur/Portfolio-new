@@ -31,7 +31,7 @@ const SharedLayout = ({ children }: { children: React.ReactNode }) => {
                     : 'translate-y-0 opacity-100'
                     }`}
             >
-                <div className="max-w-2xl mx-auto border-x border-white/5 min-h-screen bg-black/50 backdrop-blur-sm antialiased">
+                <div className="max-w-4xl mx-auto border-x border-white/5 min-h-screen bg-black/50 backdrop-blur-sm antialiased">
                     <div className="px-6 py-12 md:px-12 md:py-16">
                         {children}
                     </div>

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import DeferredVisitorCounter from '@/components/DeferredVisitorCounter'
 import ProjectVideo from '@/components/ProjectVideo'
 import TechIcon from '@/components/TechIcon'
+import { GitHubCalendar } from "react-github-calendar";
 
 export default function Home() {
   const blogs = getAllBlogs();
@@ -14,56 +15,52 @@ export default function Home() {
 
       <section id="hero" className="animate-blur-fade [animation-delay:100ms] pt-20 md:pt-0 -mx-6 md:-mx-12 md:-mt-16 overflow-hidden">
 
-        <div className="relative w-full aspect-21/9 md:aspect-25/9 mb-8 group overflow-hidden">
+        <div className="relative w-full aspect-21/9 md:aspect-25/9 group overflow-hidden rounded-2xl border border-white/5 shadow-2xl">
           <Image
-            src={"https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop"}
+            src="/banner.jpg"
             alt="Banner Image"
             fill
             priority
             sizes="(max-width: 768px) 100vw, 896px"
             quality={75}
-            className="object-cover opacity-60 transition-transform duration-1000 group-hover:scale-105"
+            className="object-cover  transition-transform duration-1000 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-80" />
-
-
-          <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
-            <p className="text-white font-serif italic text-sm md:text-xl lg:text-2xl max-w-sm md:max-w-xl opacity-90 drop-shadow-2xl leading-relaxed">
-              &quot;  The world only cares about result — Gun Park &quot;
-            </p>
-          </div>
+          <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80" />
         </div>
 
-        <div className="px-6 md:px-12 flex flex-col gap-6">
-          <div className="relative shrink-0">
-            <Image
-              src="/character.jpg"
-              alt="Aarish"
-              width={100}
-              height={100}
-              priority
-              sizes="(max-width: 768px) 64px, 96px"
-              className="rounded-full aspect-square object-cover border border-white/10 shadow-2xl w-16 h-16 md:w-24 md:h-24 "
-            />
+        <div className="px-6 md:px-12 flex flex-col">
+          <div className="flex items-end gap-3 md:gap-4 -mt-12 md:-mt-16 mb-4 md:mb-6 relative z-10 pl-2">
+            <div className="relative shrink-0">
+              <Image
+                src="/character.jpg"
+                alt="Aarish"
+                width={128}
+                height={128}
+                priority
+                sizes="(max-width: 768px) 96px, 128px"
+                className="rounded-full aspect-square object-cover border-[4px] border-[#0a0a0a] bg-[#0a0a0a] shadow-xl w-24 h-24 md:w-32 md:h-32"
+              />
+            </div>
           </div>
-          <div className="flex flex-col space-y-2">
-            <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-6xl">
-              Hey, I &apos;m Aarish 👋
+
+          <div className="flex flex-col space-y-2 pl-2">
+            <h1 className="text-3xl font-black tracking-tighter sm:text-4xl md:text-6xl">
+              Hey, I&apos;m Aarish 👋
             </h1>
-            <p className="max-w-150 text-white text-sm md:text-2xl leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-3 mt-4">
+            <p className="max-w-150 text-gray-300 text-sm md:text-xl leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-3 mt-2">
               I build Things with
               <TechIcon
                 name="React"
                 showText
-                size="w-5 h-5 md:w-6 md:h-6"
-                className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-dashed border-white/30 rounded-lg bg-white/10 text-xs md:text-sm font-medium"
+                size="w-4 h-4 md:w-5 md:h-5"
+                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
               />
               and
               <TechIcon
                 name="TypeScript"
                 showText
-                size="w-5 h-5 md:w-6 md:h-6"
-                className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-dashed border-white/30 rounded-lg bg-white/10 text-xs md:text-sm font-medium"
+                size="w-4 h-4 md:w-5 md:h-5"
+                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
               />
               — They work.
             </p>
@@ -242,6 +239,13 @@ export default function Home() {
             ))}
           </div>
 
+          <div className="relative w-full overflow-hidden rounded-xl border border-white/5 bg-white/2 p-4">
+            <div className="w-full overflow-x-auto hide-scrollbar">
+              <div className="w-max pb-2">
+                <GitHubCalendar username="aarishmansur" colorScheme="dark" fontSize={14} blockSize={14} blockMargin={4} />
+              </div>
+            </div>
+          </div>
           <Link href="/project" className="group inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-gray-400 hover:text-white transition-all mt-4 bg-white/5 px-6 py-3 rounded-xl border border-white/10 hover:bg-white/10">
             View All Projects <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
