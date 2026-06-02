@@ -8,6 +8,8 @@ import ProjectVideo from '@/components/ProjectVideo'
 import TechIcon from '@/components/TechIcon'
 import { GitHubCalendar } from "react-github-calendar";
 
+
+
 export default function Home() {
   const blogs = getAllBlogs();
   return (
@@ -238,6 +240,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <Link href="/project" className="group inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-gray-400 hover:text-white transition-all mt-4 bg-white/5 px-6 py-3 rounded-xl border border-white/10 hover:bg-white/10">
+            View All Projects <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
 
           <div className="relative w-full overflow-hidden rounded-xl border border-white/5 bg-white/2 p-4">
             <div className="w-full overflow-x-auto hide-scrollbar">
@@ -246,9 +251,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <Link href="/project" className="group inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-gray-400 hover:text-white transition-all mt-4 bg-white/5 px-6 py-3 rounded-xl border border-white/10 hover:bg-white/10">
-            View All Projects <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Link>
         </div>
       </section>
 
