@@ -52,6 +52,14 @@ export const PROJECTS = [
         live: "https://mistake-count-web.vercel.app/",
         technologies: ["Nextjs", "Express", "PostgresSql", "Prisma", "TailwindCSS"],
     },
+    {
+        name: "Feed me Daddy",
+        description: "Feed My Daddy is a YouTube discovery platform that analyzes your viewing preferences to recommend fresh, diverse content beyond your usual algorithmic recommendations.",
+        video: "https://res.cloudinary.com/drvcsdg83/video/upload/v1782290492/cursorful-video-1782289876212_qze3la.mp4",
+        github: "https://github.com/AarishMansur/feed-me-daddy",
+        live: "https://feed-me-daddy.vercel.app/",
+        technologies: ["Nextjs", "Express", "PostgresSql", "Prisma", "TailwindCSS"],
+    },
 
     {
         name: "Drew",
