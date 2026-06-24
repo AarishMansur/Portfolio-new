@@ -130,7 +130,7 @@ export default function Home() {
 
               <div className="pt-2">
                 <a
-                  href="/resume.pdf"
+                  href="/aarish_resume.pdf"
                   download
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-gray-200 transition-all shadow-lg shadow-white/5"
                 >
