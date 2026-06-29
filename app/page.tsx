@@ -3,7 +3,7 @@ import { CONTRIBUTIONS, PROJECTS } from '@/lib/data'
 import { getAllBlogs } from '@/lib/mdx'
 import Image from 'next/image'
 import Link from 'next/link'
-import DeferredVisitorCounter from '@/components/DeferredVisitorCounter'
+
 import ProjectVideo from '@/components/ProjectVideo'
 import TechIcon from '@/components/TechIcon'
 import { GitHubCalendar } from "react-github-calendar";
@@ -47,24 +47,37 @@ export default function Home() {
 
           <div className="flex flex-col space-y-2 pl-2">
             <h1 className="text-3xl font-black tracking-tighter sm:text-4xl md:text-6xl">
-              Hey, I&apos;m Aarish 👋
+              Hey,  Aarish this side
             </h1>
-            <p className="max-w-150 text-gray-300 text-sm md:text-xl leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-3 mt-2">
+            <p className="max-w-250 text-gray-300 text-sm md:text-xl leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-3 mt-2">
               I build Things with
               <TechIcon
-                name="React"
+                name="Nextjs"
+                showText
+                size="w-4 h-4 md:w-5 md:h-5"
+                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
+              />
+              ,
+              <TechIcon
+                name="Nodejs"
+                showText
+                size="w-4 h-4 md:w-5 md:h-5"
+                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
+              />
+              ,
+               <TechIcon
+                name="express"
                 showText
                 size="w-4 h-4 md:w-5 md:h-5"
                 className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
               />
               and
-              <TechIcon
-                name="TypeScript"
+               <TechIcon
+                name="PostgresSQL"
                 showText
                 size="w-4 h-4 md:w-5 md:h-5"
                 className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
               />
-              — They work.
             </p>
 
             <div className="flex flex-col gap-4 pt-4">
@@ -147,9 +160,9 @@ export default function Home() {
         <div className="space-y-4">
           <h2 className="text-xl font-bold tracking-tight">About</h2>
           <p className="text-sm md:text-base text-gray-400 leading-relaxed text-left">
-            I am a developer focused on writing clean, maintainable code and creating meaningful user experiences.
-            My current interests lie at the intersection of Web3 and modern web technologies.
-            I dedicate most of my time to building practical projects that address real-world problems.
+           Software Developer with 2 years of experience building full stack projects and contributing to open-source
+software. Contributed production ready features, bug fixes, and security improvements to widely used open
+source projects while gaining hands on experience with modern software development practices.
           </p>
         </div>
       </section>
@@ -159,7 +172,7 @@ export default function Home() {
         <div className="space-y-4">
           <h2 className="text-xl font-bold tracking-tight">Skills and Tools</h2>
           <div className="flex flex-wrap gap-3">
-            {["React", "TypeScript", "Javascript", "Next.js", "Tailwind CSS", "Framer motion", "GSAP", "Git", "Github",].map((skill) => (
+            {["React", "Nodejs","Express","TypeScript", "Javascript", "Next.js", "Tailwind CSS", "Framer motion","React-Redux", "GSAP","Prisma","PostgresSQL", "Git", "Github",].map((skill) => (
               <TechIcon
                 key={skill}
                 name={skill}
@@ -353,11 +366,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="footer" className="animate-blur-fade [animation-delay:800ms] pt-4 pb-8">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-          <DeferredVisitorCounter />
-        </div>
-      </section>
+
     </div>
   );
 }

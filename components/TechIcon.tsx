@@ -17,7 +17,9 @@ import {
   SiSupabase,
   SiStripe,
   SiFfmpeg,
-  SiGiphy
+  SiGiphy, 
+  SiNodedotjs,
+  SiRedux
 } from 'react-icons/si'
 import { Code2, FileJson } from 'lucide-react'
 
@@ -45,6 +47,12 @@ const ICON_MAP = {
   "ffmpeg.wasm": { icon: SiFfmpeg, color: "#00DDFF" },
   "giphy api": { icon: SiGiphy, color: "#CE9FFC" },
   "giphy": { icon: SiGiphy, color: "#CE9FFC" },
+  "nodejs": { icon: SiNodedotjs, color: "#339933" },
+  "node.js": { icon: SiNodedotjs, color: "#339933" },
+  "node": { icon: SiNodedotjs, color: "#339933" },
+  "redux": { icon: SiRedux, color: "#764ABC" },
+  "react redux": { icon: SiRedux, color: "#764ABC" },
+  "react-redux": { icon: SiRedux, color: "#764ABC" },
 } as const;
 
 interface TechIconProps {
