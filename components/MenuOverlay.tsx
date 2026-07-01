@@ -32,7 +32,7 @@ const MenuOverlay = ({ isMenuOpen, toggleMenu }: MenuOverlayProps) => {
         { text: 'HOME', href: '/' },
         { text: 'PROJECTS', href: '/project' },
         { text: 'BLOGS', href: '/blogs' },
-        { text: 'EXPERIENCE', href: '/experience' },
+        { text: 'OPENSOURCE', href: '/OpenSource' },
     ];
 
     const lerp = (start: number, end: number, factor: number) => {

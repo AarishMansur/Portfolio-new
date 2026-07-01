@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 import ProjectVideo from '@/components/ProjectVideo'
 import TechIcon from '@/components/TechIcon'
+import BannerVideo from '@/components/BannerVideo'
 import { GitHubCalendar } from "react-github-calendar";
 
 
@@ -18,16 +19,11 @@ export default function Home() {
       <section id="hero" className="animate-blur-fade [animation-delay:100ms] pt-20 md:pt-0 -mx-6 md:-mx-12 md:-mt-16 overflow-hidden">
 
         <div className="relative w-full aspect-21/9 md:aspect-25/9 group overflow-hidden rounded-2xl border border-white/5 shadow-2xl">
-          <Image
-            src="/banner.jpg"
-            alt="Banner Image"
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 896px"
-            quality={75}
-            className="object-cover  transition-transform duration-1000 group-hover:scale-105"
+          <BannerVideo
+            src="https://res.cloudinary.com/drvcsdg83/video/upload/v1782900558/vinland-saga2.3840x2160_iftc48.mp4"
+            alt="Animated banner video"
+            className="object-cover"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80" />
         </div>
 
         <div className="px-6 md:px-12 flex flex-col">
@@ -155,17 +151,19 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section id="about" className="animate-blur-fade [animation-delay:200ms]">
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold tracking-tight">About</h2>
-          <p className="text-sm md:text-base text-gray-400 leading-relaxed text-left">
-           Software Developer with 2 years of experience building full stack projects and contributing to open-source
-software. Contributed production ready features, bug fixes, and security improvements to widely used open
-source projects while gaining hands on experience with modern software development practices.
-          </p>
-        </div>
-      </section>
+<section id="about" className="animate-blur-fade [animation-delay:200ms]">
+  <div className="space-y-4">
+    <h2 className="text-xl font-bold tracking-tight">About</h2>
+    <div className="text-sm md:text-base text-gray-400 leading-relaxed">
+      <p className="mb-3 font-bold text-gray-500">tldr;</p>
+      <ul className="space-y-2 list-disc pl-5 text-white">
+        <li className="font-semibold">Open source and developer experience are what actually excite me.</li>
+        <li className="font-semibold">I love building and shipping features that no one asked for.</li>
+        <li className="font-semibold">Part-time Spider-Man (don’t tell anyone, okay?).</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 
       <section id="skills" className="animate-blur-fade [animation-delay:300ms]">
@@ -270,7 +268,7 @@ source projects while gaining hands on experience with modern software developme
 
       <section id="contributions" className="animate-blur-fade [animation-delay:600ms]">
         <div className="space-y-4">
-          <h2 className="text-xl font-bold tracking-tight">Experience</h2>
+          <h2 className="text-xl font-bold tracking-tight">Open source contributions</h2>
           <div className="flex flex-col gap-y-4">
             {CONTRIBUTIONS.slice(0, 2).map((contrib, idx) => (
               <div key={idx} className="flex items-center gap-3 group px-4 py-3 rounded-xl border border-white/5 bg-white/2">
