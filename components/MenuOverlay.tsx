@@ -10,7 +10,6 @@ interface MenuOverlayProps {
 }
 
 const MenuOverlay = ({ isMenuOpen, toggleMenu }: MenuOverlayProps) => {
-    const [isAnimating, setIsAnimating] = useState(false);
 
     const overlayRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
@@ -286,7 +285,7 @@ const MenuOverlay = ({ isMenuOpen, toggleMenu }: MenuOverlayProps) => {
                     }`}
             >
                 <Image
-                    src="/character.jpg"
+                    src="/character.png"
                     alt="A character Image"
                     width={160}
                     height={160}

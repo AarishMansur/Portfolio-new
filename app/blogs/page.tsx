@@ -27,7 +27,7 @@ export default function AllBlogsPage() {
                     >
                         <div className="relative aspect-video w-full overflow-hidden">
                             <Image
-                                src={blog.image || "/character.jpg"}
+                                src={blog.image || "/character.png"}
                                 alt={blog.title}
                                 fill
                                 sizes="(max-width: 768px) 100vw, 448px"

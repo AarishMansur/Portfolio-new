@@ -9,7 +9,13 @@ import TechIcon from '@/components/TechIcon'
 import BannerVideo from '@/components/BannerVideo'
 import { GitHubCalendar } from "react-github-calendar";
 
-
+const SectionDivider = () => (
+  <div aria-hidden="true" className="relative -my-8 -mx-6 h-px md:-mx-12">
+    <span className="absolute inset-x-0 top-1/2 border-t border-dotted border-white/25" />
+    <span className="absolute left-0 top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white" />
+    <span className="absolute right-0 top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white" />
+  </div>
+);
 
 export default function Home() {
   const blogs = getAllBlogs();
@@ -18,67 +24,39 @@ export default function Home() {
 
       <section id="hero" className="animate-blur-fade [animation-delay:100ms] pt-20 md:pt-0 -mx-6 md:-mx-12 md:-mt-16 overflow-hidden">
 
-        <div className="relative w-full aspect-21/9 md:aspect-25/9 group overflow-hidden rounded-2xl border border-white/5 shadow-2xl">
+        <div className="relative w-full h-32 md:h-48 lg:h-56 group overflow-hidden border border-white/5 shadow-2xl">
           <BannerVideo
-            src="https://res.cloudinary.com/drvcsdg83/video/upload/v1782900558/vinland-saga2.3840x2160_iftc48.mp4"
+            src="download.mp4"
             alt="Animated banner video"
-            className="object-cover"
+            className="absolute inset-0 w-full h-full object-contain"
           />
         </div>
 
-        <div className="px-6 md:px-12 flex flex-col">
-          <div className="flex items-end gap-3 md:gap-4 -mt-12 md:-mt-16 mb-4 md:mb-6 relative z-10 pl-2">
-            <div className="relative shrink-0">
-              <Image
-                src="/character.jpg"
-                alt="Aarish"
-                width={128}
-                height={128}
-                priority
-                sizes="(max-width: 768px) 96px, 128px"
-                className="rounded-full aspect-square object-cover border-[4px] border-[#0a0a0a] bg-[#0a0a0a] shadow-xl w-24 h-24 md:w-32 md:h-32"
-              />
+        <div className="px-6 md:px-12 flex flex-col pt-8">
+          <SectionDivider />
+          <div className="flex items-center justify-between gap-3 md:gap-4 mt-12 md:mt-16 mb-6 md:mb-8 relative z-10 pl-2">
+            <div className="flex items-center gap-4">
+              <div className="relative shrink-0">
+                <Image
+                  src="/character.png"
+                  alt="Aarish"
+                  width={128}
+                  height={128}
+                  priority
+                  sizes="(max-width: 768px) 80px, 112px"
+                  className="h-20 w-20 rounded-lg border-2 border-[#0a0a0a] bg-[#0a0a0a] object-cover shadow-xl md:h-28 md:w-28"
+                />
+
+              </div>
+              <div className="flex flex-col">
+                <h2 className="text-xl md:text-3xl font-bold text-white tracking-tight">Aarish</h2>
+                <p className="text-sm md:text-base text-white/70 font-medium">21</p>
+              </div>
             </div>
-          </div>
 
-          <div className="flex flex-col space-y-2 pl-2">
-            <h1 className="text-3xl font-black tracking-tighter sm:text-4xl md:text-6xl">
-              Hey,  Aarish this side
-            </h1>
-            <p className="max-w-250 text-gray-300 text-sm md:text-xl leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-3 mt-2">
-              I build Things with
-              <TechIcon
-                name="Nextjs"
-                showText
-                size="w-4 h-4 md:w-5 md:h-5"
-                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
-              />
-              ,
-              <TechIcon
-                name="Nodejs"
-                showText
-                size="w-4 h-4 md:w-5 md:h-5"
-                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
-              />
-              ,
-               <TechIcon
-                name="express"
-                showText
-                size="w-4 h-4 md:w-5 md:h-5"
-                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
-              />
-              and
-               <TechIcon
-                name="PostgresSQL"
-                showText
-                size="w-4 h-4 md:w-5 md:h-5"
-                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
-              />
-            </p>
-
-            <div className="flex flex-col gap-4 pt-4">
-              <div className="flex items-center gap-4">
-                <a href="https://github.com/AarishMansur" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all">
+            <div className="ml-auto flex min-w-0 justify-end pl-3">
+              <div className="flex flex-nowrap items-center justify-end gap-2">
+                <a href="https://github.com/AarishMansur" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-black/25 border border-white/15 text-gray-300 backdrop-blur-md hover:text-white hover:bg-white/10 transition-all">
 
                   <svg
                     viewBox="0 0 48 48"
@@ -94,7 +72,7 @@ export default function Home() {
                   </svg>
 
                 </a>
-                <a href="https://www.linkedin.com/in/aarish-%E3%82%A2%E3%83%BC%E3%83%AA%E3%83%83%E3%82%B7%E3%83%A5-723b8b377/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all">
+                <a href="https://www.linkedin.com/in/aarish-%E3%82%A2%E3%83%BC%E3%83%AA%E3%83%83%E3%82%B7%E3%83%A5-723b8b377/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-black/25 border border-white/15 text-gray-300 backdrop-blur-md hover:text-white hover:bg-white/10 transition-all">
                   <svg
                     viewBox="0 0 24 24"
                     className="w-5 h-5 transition-colors duration-200"
@@ -113,7 +91,7 @@ export default function Home() {
                     </defs>
                   </svg>
                 </a>
-                <a href="https://x.com/_RsUr" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all">
+                <a href="https://x.com/_RsUr" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-black/25 border border-white/15 text-gray-300 backdrop-blur-md hover:text-white hover:bg-white/10 transition-all">
                   <svg
                     viewBox="0 0 48 42"
                     className="w-5 h-5 transition-colors duration-200"
@@ -127,16 +105,52 @@ export default function Home() {
                     />
                   </svg>
                 </a>
-                <a href="https://medium.com/@aarishmansur" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all">
+                <a href="https://medium.com/@aarishmansur" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-black/25 border border-white/15 text-gray-300 backdrop-blur-md hover:text-white hover:bg-white/10 transition-all">
                   <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
                     <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.82 6.82 0 010 12a6.82 6.82 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-.81 6.41-1.82 6.41s-1.82-2.87-1.82-6.41.81-6.41 1.82-6.41 1.82 2.87 1.82 6.41zM24 12c0 3.17-.19 5.75-.42 5.75s-.42-2.58-.42-5.75.19-5.75.42-5.75.42 2.58.42 5.75z" />
                   </svg>
                 </a>
-                <a href="mailto:aarishmansur@gmail.com" className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all">
+                <a href="mailto:aarishmansur@gmail.com" className="p-2 rounded-lg bg-black/25 border border-white/15 text-gray-300 backdrop-blur-md hover:text-white hover:bg-white/10 transition-all">
                   <Mail className="w-5 h-5" />
                 </a>
               </div>
 
+            </div>
+
+          </div>
+          <div className="flex flex-col space-y-2 pl-2  ">
+            <p className="max-w-250 text-gray-300 text-sm md:text-xl leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-3 mt-2">
+              I build Things with
+              <TechIcon
+                name="Nextjs"
+                showText
+                size="w-4 h-4 md:w-5 md:h-5"
+                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
+              />
+              ,
+              <TechIcon
+                name="Nodejs"
+                showText
+                size="w-4 h-4 md:w-5 md:h-5"
+                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
+              />
+              ,
+              <TechIcon
+                name="express"
+                showText
+                size="w-4 h-4 md:w-5 md:h-5"
+                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
+              />
+              and
+              <TechIcon
+                name="PostgresSQL"
+                showText
+                size="w-4 h-4 md:w-5 md:h-5"
+                className="inline-flex items-center gap-2 px-3 py-1.5 border border-dashed border-white/20 rounded-lg bg-white/5 text-xs md:text-sm font-medium"
+              />
+            </p>
+
+            <div className="flex flex-col gap-4 pt-4">
               <div className="pt-2">
                 <a
                   href="/aarish_resume.pdf"
@@ -151,26 +165,28 @@ export default function Home() {
           </div>
         </div>
       </section>
-<section id="about" className="animate-blur-fade [animation-delay:200ms]">
-  <div className="space-y-4">
-    <h2 className="text-xl font-bold tracking-tight">About</h2>
-    <div className="text-sm md:text-base text-gray-400 leading-relaxed">
-      <p className="mb-3 font-bold text-gray-500">tldr;</p>
-      <ul className="space-y-2 list-disc pl-5 text-white">
-        <li className="font-semibold">Open source and developer experience are what actually excite me.</li>
-        <li className="font-semibold">I love building and shipping features that no one asked for.</li>
-        <li className="font-semibold">Part-time Spider-Man (don’t tell anyone, okay?).</li>
-      </ul>
-    </div>
-  </div>
-</section>
+      <SectionDivider />
+      <section id="about" className="animate-blur-fade [animation-delay:200ms]">
+        <div className="space-y-4">
+          <h2 className="text-xl font-bold tracking-tight">About</h2>
+          <div className="text-sm md:text-base text-gray-400 leading-relaxed">
+            <p className="mb-3 font-bold text-gray-500">tldr;</p>
+            <ul className="space-y-2 list-disc pl-5 text-white">
+              <li className="font-semibold">Open source and developer experience are what actually excite me.</li>
+              <li className="font-semibold">I love building and shipping features that no one asked for.</li>
+              <li className="font-semibold">Part time Spider Man (don’t tell anyone, okay?).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <SectionDivider />
 
 
       <section id="skills" className="animate-blur-fade [animation-delay:300ms]">
         <div className="space-y-4">
           <h2 className="text-xl font-bold tracking-tight">Skills and Tools</h2>
           <div className="flex flex-wrap gap-3">
-            {["React", "Nodejs","Express","TypeScript", "Javascript", "Next.js", "Tailwind CSS", "Framer motion","React-Redux", "GSAP","Prisma","PostgresSQL", "Git", "Github",].map((skill) => (
+            {["React", "Nodejs", "Express", "TypeScript", "Javascript", "Next.js", "Tailwind CSS", "Framer motion", "React-Redux", "GSAP", "Prisma", "PostgresSQL", "Git", "Github",].map((skill) => (
               <TechIcon
                 key={skill}
                 name={skill}
@@ -181,6 +197,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <SectionDivider />
 
 
       <section id="projects" className="animate-blur-fade [animation-delay:400ms]">
@@ -264,6 +281,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <SectionDivider />
 
 
       <section id="contributions" className="animate-blur-fade [animation-delay:600ms]">
@@ -288,6 +306,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <SectionDivider />
 
       <section id="blogs" className="animate-blur-fade [animation-delay:600ms]">
         <div className="space-y-6">
@@ -305,7 +324,7 @@ export default function Home() {
               >
                 <div className="relative aspect-video w-full overflow-hidden">
                   <Image
-                    src={blog.image || "/character.jpg"}
+                    src={blog.image || "/character.png"}
                     alt={blog.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 448px"
@@ -342,6 +361,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      <SectionDivider />
 
       {/* Education */}
       <section id="education" className="animate-blur-fade [animation-delay:700ms]">
@@ -363,8 +383,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <SectionDivider />
 
 
     </div>
   );
 }
+
