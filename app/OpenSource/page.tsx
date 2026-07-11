@@ -1,6 +1,9 @@
-
 import { GitMerge, GitPullRequest, Briefcase, GraduationCap } from 'lucide-react'
 import { CONTRIBUTIONS } from '@/lib/data'
+
+const GridHeading = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+    <h2 className={`text-2xl font-bold tracking-tight text-white ${className}`}>{children}</h2>
+)
 
 export default function ExperiencePage() {
     return (
@@ -8,7 +11,7 @@ export default function ExperiencePage() {
 
             <section id="work">
                 <div className="space-y-6">
-                    <h2 className="text-2xl font-bold tracking-tight">Contribution History</h2>
+                    <GridHeading>Experiences</GridHeading>
                     <div className="flex flex-col gap-y-8">
                         <div className="flex items-start justify-between group">
                             <div className="flex gap-4">
@@ -29,15 +32,14 @@ export default function ExperiencePage() {
                 </div>
             </section>
 
-
             <section id="contributions">
                 <div className="space-y-6">
-                    <h2 className="text-xl font-bold tracking-tight flex items-center gap-2">
+                    <GridHeading className="text-xl md:text-2xl">
                         All Open Source Contributions
                         <span className="text-xs font-normal bg-white/5 border border-white/10 px-2 py-0.5 rounded-full text-gray-500">
                             {CONTRIBUTIONS.length}
                         </span>
-                    </h2>
+                    </GridHeading>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {CONTRIBUTIONS.map((contrib, idx) => (
                             <div
@@ -75,10 +77,9 @@ export default function ExperiencePage() {
                 </div>
             </section>
 
-            {/* Education Recap */}
             <section id="education">
                 <div className="space-y-6">
-                    <h2 className="text-xl font-bold tracking-tight">Education</h2>
+                    <GridHeading>Education</GridHeading>
                     <div className="flex flex-col gap-y-4">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4">
@@ -98,3 +99,4 @@ export default function ExperiencePage() {
         </div>
     )
 }
+

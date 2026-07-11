@@ -9,12 +9,8 @@ import TechIcon from '@/components/TechIcon'
 import BannerVideo from '@/components/BannerVideo'
 import { GitHubCalendar } from "react-github-calendar";
 
-const SectionDivider = () => (
-  <div aria-hidden="true" className="relative -my-8 -mx-6 h-px md:-mx-12">
-    <span className="absolute inset-x-0 top-1/2 border-t border-dotted border-white/25" />
-    <span className="absolute left-0 top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white" />
-    <span className="absolute right-0 top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white" />
-  </div>
+const DashedHeading = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+  <h2 className={`text-xl font-bold tracking-tight text-white ${className}`}>{children}</h2>
 );
 
 export default function Home() {
@@ -33,7 +29,6 @@ export default function Home() {
         </div>
 
         <div className="px-6 md:px-12 flex flex-col pt-8">
-          <SectionDivider />
           <div className="flex items-center justify-between gap-3 md:gap-4 mt-12 md:mt-16 mb-6 md:mb-8 relative z-10 pl-2">
             <div className="flex items-center gap-4">
               <div className="relative shrink-0">
@@ -165,10 +160,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <SectionDivider />
       <section id="about" className="animate-blur-fade [animation-delay:200ms]">
         <div className="space-y-4">
-          <h2 className="text-xl font-bold tracking-tight">About</h2>
+          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+            <DashedHeading>About</DashedHeading>
+          </div>
           <div className="text-sm md:text-base text-gray-400 leading-relaxed">
             <p className="mb-3 font-bold text-gray-500">tldr;</p>
             <ul className="space-y-2 list-disc pl-5 text-white">
@@ -179,12 +175,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <SectionDivider />
-
-
       <section id="skills" className="animate-blur-fade [animation-delay:300ms]">
         <div className="space-y-4">
-          <h2 className="text-xl font-bold tracking-tight">Skills and Tools</h2>
+          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+            <DashedHeading>Skills and Tools</DashedHeading>
+          </div>
           <div className="flex flex-wrap gap-3">
             {["React", "Nodejs", "Express", "TypeScript", "Javascript", "Next.js", "Tailwind CSS", "Framer motion", "React-Redux", "GSAP", "Prisma", "PostgresSQL", "Git", "Github",].map((skill) => (
               <TechIcon
@@ -197,14 +192,13 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <SectionDivider />
-
-
       <section id="projects" className="animate-blur-fade [animation-delay:400ms]">
         <div className="space-y-6">
           <div className="flex flex-col">
             <p className="text-gray-500 font-bold uppercase tracking-[0.2em] text-[10px] mb-1">Featured</p>
-            <h2 className="text-2xl font-bold tracking-tight italic">Projects</h2>
+            <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+              <DashedHeading className="text-2xl italic">Projects</DashedHeading>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -272,21 +266,19 @@ export default function Home() {
             View All Projects <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
 
-          <div className="relative w-full overflow-hidden rounded-xl border border-white/5 bg-white/2 p-4">
-            <div className="w-full overflow-x-auto hide-scrollbar">
-              <div className="w-max pb-2">
-                <GitHubCalendar username="aarishmansur" colorScheme="dark" fontSize={14} blockSize={14} blockMargin={4} />
-              </div>
+          <div className="w-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent p-5">
+            <p className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-3">Contribution Activity</p>
+            <div className="w-full [&_>_*]:w-full [&_svg]:w-full [&_svg]:h-auto">
+              <GitHubCalendar username="aarishmansur" colorScheme="dark" fontSize={14} blockSize={14} blockMargin={4} />
             </div>
           </div>
         </div>
       </section>
-      <SectionDivider />
-
-
       <section id="contributions" className="animate-blur-fade [animation-delay:600ms]">
         <div className="space-y-4">
-          <h2 className="text-xl font-bold tracking-tight">Open source contributions</h2>
+          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+            <DashedHeading>Open source contributions</DashedHeading>
+          </div>
           <div className="flex flex-col gap-y-4">
             {CONTRIBUTIONS.slice(0, 2).map((contrib, idx) => (
               <div key={idx} className="flex items-center gap-3 group px-4 py-3 rounded-xl border border-white/5 bg-white/2">
@@ -306,13 +298,13 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <SectionDivider />
-
       <section id="blogs" className="animate-blur-fade [animation-delay:600ms]">
         <div className="space-y-6">
           <div className="flex flex-col">
             <p className="text-gray-500 font-bold uppercase tracking-[0.2em] text-[10px] mb-1">Latest</p>
-            <h2 className="text-2xl font-bold tracking-tight italic">Writing</h2>
+            <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+              <DashedHeading className="text-2xl italic">Writing</DashedHeading>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -361,12 +353,12 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <SectionDivider />
-
       {/* Education */}
       <section id="education" className="animate-blur-fade [animation-delay:700ms]">
         <div className="space-y-4">
-          <h2 className="text-xl font-bold tracking-tight">Education</h2>
+          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+            <DashedHeading>Education</DashedHeading>
+          </div>
           <div className="flex flex-col gap-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
@@ -383,10 +375,31 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <SectionDivider />
 
+      
+      <section id="quote" className="animate-blur-fade [animation-delay:800ms]">
+        <div className="rounded-2xl border-r-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-10">
+          <div className="flex gap-5">
+            <span className="hidden md:block text-6xl text-blue-400/20 select-none leading-none font-serif" aria-hidden="true">&ldquo;</span>
+            <div className="flex-1">
+              <blockquote>
+                <p className="text-base md:text-lg text-gray-200 leading-relaxed font-medium">
+                 How can you have an affair if you're scared of your wife Dammit !!
+                </p>
+              </blockquote>
+              <div className="mt-5 flex items-center gap-3">
+                <span className="h-px w-8 bg-blue-400/30" />
+                <cite className="text-sm text-gray-400 not-italic font-semibold tracking-wide">Kagura</cite>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </div>
   );
 }
+
+
+
 
