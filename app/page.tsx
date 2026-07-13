@@ -7,7 +7,7 @@ import Link from 'next/link'
 import ProjectVideo from '@/components/ProjectVideo'
 import TechIcon from '@/components/TechIcon'
 import BannerVideo from '@/components/BannerVideo'
-import { GitHubCalendar } from "react-github-calendar";
+import GitHubCalendarClient from '@/components/GitHubCalendarClient'
 
 const DashedHeading = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <h2 className={`text-xl font-bold tracking-tight text-white ${className}`}>{children}</h2>
@@ -269,7 +269,7 @@ export default function Home() {
           <div className="w-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent p-5">
             <p className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-3">Contribution Activity</p>
             <div className="w-full [&_>_*]:w-full [&_svg]:w-full [&_svg]:h-auto">
-              <GitHubCalendar username="aarishmansur" colorScheme="dark" fontSize={14} blockSize={14} blockMargin={4} />
+              <GitHubCalendarClient username="aarishmansur" colorScheme="dark" fontSize={14} blockSize={14} blockMargin={4} />
             </div>
           </div>
         </div>
