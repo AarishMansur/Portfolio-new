@@ -1,13 +1,38 @@
 'use client';
 
+import Lenis from 'lenis';
 import Navbar from '@/components/Navbar';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import BackgroundEffects from '@/components/BackgroundEffects';
 import MenuOverlay from '@/components/MenuOverlay';
 
 const SharedLayout = ({ children }: { children: React.ReactNode }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
+    const rafId = useRef<number | null>(null);
+
+    useEffect(() => {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+            syncTouch: false,
+        });
+
+        const animate = (time: number) => {
+            lenis.raf(time);
+            rafId.current = requestAnimationFrame(animate);
+        };
+
+        rafId.current = requestAnimationFrame(animate);
+
+        return () => {
+            if (rafId.current) {
+                cancelAnimationFrame(rafId.current);
+            }
+            lenis.destroy();
+        };
+    }, []);
 
     const toggleMenu = () => {
         if (isAnimating) return;
