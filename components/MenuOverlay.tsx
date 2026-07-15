@@ -256,7 +256,7 @@ const MenuOverlay = ({ isMenuOpen, toggleMenu }: MenuOverlayProps) => {
         >
             <div
                 ref={contentRef}
-                className={`absolute top-1/2 left-0 w-full -translate-y-1/2 px-8 md:px-16 flex justify-between gap-8 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-12.5 opacity-0'
+                className={`absolute top-1/2 left-0 w-full -translate-y-1/2 px-4 sm:px-8 md:px-16 flex flex-col sm:flex-row justify-between gap-8 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-12.5 opacity-0'
                     }`}
             >
                 <div className="flex flex-col gap-2 text-xs uppercase">

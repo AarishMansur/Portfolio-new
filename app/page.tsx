@@ -29,7 +29,7 @@ export default function Home() {
         </div>
 
         <div className="px-6 md:px-12 flex flex-col pt-8">
-          <div className="flex items-center justify-between gap-3 md:gap-4 mt-12 md:mt-16 mb-6 md:mb-8 relative z-10 pl-2">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 mt-12 md:mt-16 mb-6 md:mb-8 relative z-10 pl-2">
             <div className="flex items-center gap-4">
               <div className="relative shrink-0">
                 <Image
@@ -49,8 +49,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="ml-auto flex min-w-0 justify-end pl-3">
-              <div className="flex flex-nowrap items-center justify-end gap-2">
+            <div className="sm:ml-auto flex min-w-0 sm:justify-end">
+              <div className="flex flex-wrap items-center gap-2">
                 <a href="https://github.com/AarishMansur" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-black/25 border border-white/15 text-gray-300 backdrop-blur-md hover:text-white hover:bg-white/10 transition-all">
 
                   <svg
@@ -162,7 +162,7 @@ export default function Home() {
       </section>
       <section id="about" className="animate-blur-fade [animation-delay:200ms]">
         <div className="space-y-4">
-          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-4 md:p-6">
             <DashedHeading>About</DashedHeading>
           </div>
           <div className="text-sm md:text-base text-gray-400 leading-relaxed">
@@ -177,7 +177,7 @@ export default function Home() {
       </section>
       <section id="skills" className="animate-blur-fade [animation-delay:300ms]">
         <div className="space-y-4">
-          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-4 md:p-6">
             <DashedHeading>Skills and Tools</DashedHeading>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -196,7 +196,7 @@ export default function Home() {
         <div className="space-y-6">
           <div className="flex flex-col">
             <p className="text-gray-500 font-bold uppercase tracking-[0.2em] text-[10px] mb-1">Featured</p>
-            <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+            <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-4 md:p-6">
               <DashedHeading className="text-2xl italic">Projects</DashedHeading>
             </div>
           </div>
@@ -276,7 +276,7 @@ export default function Home() {
       </section>
       <section id="contributions" className="animate-blur-fade [animation-delay:600ms]">
         <div className="space-y-4">
-          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-4 md:p-6">
             <DashedHeading>Open source contributions</DashedHeading>
           </div>
           <div className="flex flex-col gap-y-4">
@@ -302,7 +302,7 @@ export default function Home() {
         <div className="space-y-6">
           <div className="flex flex-col">
             <p className="text-gray-500 font-bold uppercase tracking-[0.2em] text-[10px] mb-1">Latest</p>
-            <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+            <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-4 md:p-6">
               <DashedHeading className="text-2xl italic">Writing</DashedHeading>
             </div>
           </div>
@@ -356,7 +356,7 @@ export default function Home() {
       {/* Education */}
       <section id="education" className="animate-blur-fade [animation-delay:700ms]">
         <div className="space-y-4">
-          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-2">
+          <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-4 md:p-6">
             <DashedHeading>Education</DashedHeading>
           </div>
           <div className="flex flex-col gap-y-4">
