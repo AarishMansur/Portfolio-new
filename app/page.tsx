@@ -269,7 +269,7 @@ export default function Home() {
           <div className="w-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent p-5">
             <p className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-3">Contribution Activity</p>
             <div className="w-full [&_>_*]:w-full [&_svg]:w-full [&_svg]:h-auto">
-              <GitHubCalendarClient username="aarishmansur" colorScheme="dark" fontSize={14} blockSize={14} blockMargin={4} />
+              <GitHubCalendarClient username="aarishmansur" fontSize={14} blockSize={14} blockMargin={4} />
             </div>
           </div>
         </div>
@@ -376,7 +376,7 @@ export default function Home() {
         </div>
       </section>
 
-      
+
       <section id="quote" className="animate-blur-fade [animation-delay:800ms]">
         <div className="rounded-2xl border-r-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-10">
           <div className="flex gap-5">
@@ -384,7 +384,7 @@ export default function Home() {
             <div className="flex-1">
               <blockquote>
                 <p className="text-base md:text-lg text-gray-200 leading-relaxed font-medium">
-                 How can you have an affair if you're scared of your wife Dammit !!
+                  How can you have an affair if you're scared of your wife Dammit !!
                 </p>
               </blockquote>
               <div className="mt-5 flex items-center gap-3">
