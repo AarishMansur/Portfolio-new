@@ -270,7 +270,7 @@ const MenuOverlay = ({ isMenuOpen, toggleMenu }: MenuOverlayProps) => {
                         </span>
                     </p>
                 </div>
-                <div className="flex flex-col gap-2 text-xs uppercase text-right">
+                <div className="flex flex-col gap-2 text-xs uppercase sm:text-right">
                     <p className="opacity-50">Contact</p>
                     <p>aarishmansur@gmail.com</p>
                     <p>+91 9887687220</p>
