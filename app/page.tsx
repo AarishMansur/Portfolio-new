@@ -292,7 +292,7 @@ export default function Home() {
                 </span>
               </div>
             ))}
-            <Link href="/experience" className="text-xs text-gray-500 hover:text-gray-300 transition-colors mt-2 flex items-center gap-1">
+            <Link href="/OpenSource" className="text-xs text-gray-500 hover:text-gray-300 transition-colors mt-2 flex items-center gap-1">
               View all contributions <span className="text-lg">→</span>
             </Link>
           </div>

@@ -30,12 +30,6 @@ export const CONTRIBUTIONS = [
         date: "Dec 2025"
     },
     {
-        name: "Fixed the Loosing text focus while switching tabs",
-        url: "https://github.com/excalidraw/excalidraw/pull/10515",
-        merged: false,
-        date: "Dec 2025"
-    },
-    {
         name: "DefinePlugin error reporting and evaluation safety",
         url: "https://github.com/webpack/webpack/pull/20260",
         merged: false,
