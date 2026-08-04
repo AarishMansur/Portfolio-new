@@ -1,4 +1,4 @@
-import { GitMerge, GitPullRequest, Briefcase, GraduationCap } from 'lucide-react'
+import { GitMerge, Briefcase, GraduationCap } from 'lucide-react'
 import { CONTRIBUTIONS } from '@/lib/data'
 
 const GridHeading = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
@@ -36,42 +36,25 @@ export default function ExperiencePage() {
                 <div className="space-y-6">
                     <GridHeading className="text-xl md:text-2xl">
                         All Open Source Contributions
-                        <span className="text-xs font-normal bg-white/5 border border-white/10 px-2 py-0.5 rounded-full text-gray-500">
+                        <span className="text-xs ml-4 font-normal bg-white/5 border border-white/10 px-2 py-0.5 rounded-full text-gray-500">
                             {CONTRIBUTIONS.length}
                         </span>
                     </GridHeading>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="flex flex-col">
                         {CONTRIBUTIONS.map((contrib, idx) => (
-                            <div
+                            <a
                                 key={idx}
-                                className="p-4 rounded-xl border border-white/5 bg-white/2 hover:bg-white/5 hover:border-white/10 transition-all group"
+                                href={contrib.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 py-3 border-b border-white/5 last:border-0 group hover:bg-white/[0.02] -mx-3 px-3 rounded-lg transition-colors"
                             >
-                                <div className="flex items-start justify-between mb-2">
-                                    {contrib.merged ? (
-                                        <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-purple-400 bg-purple-400/10 px-2 py-0.5 rounded-full">
-                                            <GitMerge className="w-3 h-3" />
-                                            Merged
-                                        </div>
-                                    ) : (
-                                        <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full">
-                                            <GitPullRequest className="w-3 h-3" />
-                                            Open
-                                        </div>
-                                    )}
-                                    <span className="text-[10px] text-gray-600 tabular-nums">{contrib.date}</span>
-                                </div>
-                                <h3 className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors mb-1">
+                                <GitMerge className="w-4 h-4 text-purple-400 shrink-0" />
+                                <span className="text-sm text-gray-300 group-hover:text-white transition-colors truncate">
                                     {contrib.name}
-                                </h3>
-                                <a
-                                    href={contrib.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-xs text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1"
-                                >
-                                    View on GitHub <span className="text-xs">↗</span>
-                                </a>
-                            </div>
+                                </span>
+                                <span className="ml-auto text-xs text-gray-600 tabular-nums shrink-0">{contrib.date}</span>
+                            </a>
                         ))}
                     </div>
                 </div>
@@ -99,4 +82,3 @@ export default function ExperiencePage() {
         </div>
     )
 }
-

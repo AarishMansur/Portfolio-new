@@ -1,4 +1,4 @@
-import { GitMerge, GitPullRequest, Globe, ArrowRight, Mail, FileText } from 'lucide-react'
+import { GitMerge, Globe, ArrowRight, Mail, FileText } from 'lucide-react'
 import { CONTRIBUTIONS, PROJECTS } from '@/lib/data'
 import { getAllBlogs } from '@/lib/mdx'
 import Image from 'next/image'
@@ -9,7 +9,6 @@ import TechIcon from '@/components/TechIcon'
 import BannerVideo from '@/components/BannerVideo'
 import GitHubCalendarClient from '@/components/GitHubCalendarClient'
 import Quote from '@/components/Quote'
-import ProgressiveBlur from '@/components/ProgressiveBlur'
 
 const DashedHeading = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <h2 className={`text-xl font-bold tracking-tight text-white ${className}`}>{children}</h2>
@@ -18,7 +17,7 @@ const DashedHeading = ({ children, className = "" }: { children: React.ReactNode
 export default function Home() {
   const blogs = getAllBlogs();
   return (
-    <ProgressiveBlur className="flex flex-col gap-y-16 py-8">
+    <div className="flex flex-col gap-y-16 py-8">
 
       <section id="hero" className="animate-blur-fade [animation-delay:100ms] pt-20 md:pt-0 -mx-6 md:-mx-12 md:-mt-16 overflow-hidden">
 
@@ -284,18 +283,20 @@ export default function Home() {
           <div className="rounded-2xl border-l-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-4 md:p-6">
             <DashedHeading>Open source contributions</DashedHeading>
           </div>
-          <div className="flex flex-col gap-y-4">
-            {CONTRIBUTIONS.slice(0, 2).map((contrib, idx) => (
-              <div key={idx} className="flex items-center gap-3 group px-4 py-3 rounded-xl border border-white/5 bg-white/2">
-                {contrib.merged ? (
-                  <GitMerge className="w-4 h-4 text-purple-400" />
-                ) : (
-                  <GitPullRequest className="w-4 h-4 text-green-400" />
-                )}
-                <span className="text-sm text-gray-400 italic">
-                  PR: <a href={contrib.url} target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white hover:underline transition-colors">{contrib.name}</a>
+          <div className="flex flex-col">
+            {CONTRIBUTIONS.slice(0, 4).map((contrib, idx) => (
+              <a
+                key={idx}
+                href={contrib.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 py-3 border-b border-white/5 last:border-0 group hover:bg-white/[0.02] -mx-3 px-3 rounded-lg transition-colors"
+              >
+                <GitMerge className="w-4 h-4 text-purple-400 shrink-0" />
+                <span className="text-sm text-gray-300 group-hover:text-white transition-colors truncate">
+                  {contrib.name}
                 </span>
-              </div>
+              </a>
             ))}
             <Link href="/OpenSource" className="text-xs text-gray-500 hover:text-gray-300 transition-colors mt-2 flex items-center gap-1">
               View all contributions <span className="text-lg">→</span>
@@ -386,7 +387,7 @@ export default function Home() {
         <Quote />
       </section>
 
-    </ProgressiveBlur>
+    </div>
   );
 }
 
