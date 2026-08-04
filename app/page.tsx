@@ -8,6 +8,8 @@ import ProjectVideo from '@/components/ProjectVideo'
 import TechIcon from '@/components/TechIcon'
 import BannerVideo from '@/components/BannerVideo'
 import GitHubCalendarClient from '@/components/GitHubCalendarClient'
+import Quote from '@/components/Quote'
+import ProgressiveBlur from '@/components/ProgressiveBlur'
 
 const DashedHeading = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <h2 className={`text-xl font-bold tracking-tight text-white ${className}`}>{children}</h2>
@@ -16,15 +18,15 @@ const DashedHeading = ({ children, className = "" }: { children: React.ReactNode
 export default function Home() {
   const blogs = getAllBlogs();
   return (
-    <div className="flex flex-col gap-y-16 py-8">
+    <ProgressiveBlur className="flex flex-col gap-y-16 py-8">
 
       <section id="hero" className="animate-blur-fade [animation-delay:100ms] pt-20 md:pt-0 -mx-6 md:-mx-12 md:-mt-16 overflow-hidden">
 
-        <div className="relative w-full h-32 md:h-48 lg:h-56 group overflow-hidden border border-white/5 shadow-2xl">
+        <div className="relative w-full h-52 md:h-72 lg:h-88 group overflow-hidden border border-white/5 shadow-2xl">
           <BannerVideo
             src="download.mp4"
             alt="Animated banner video"
-            className="absolute inset-0 w-full h-full object-contain"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
 
@@ -41,7 +43,6 @@ export default function Home() {
                   sizes="(max-width: 768px) 80px, 112px"
                   className="h-20 w-20 rounded-lg border-2 border-[#0a0a0a] bg-[#0a0a0a] object-cover shadow-xl md:h-28 md:w-28"
                 />
-
               </div>
               <div className="flex flex-col">
                 <h2 className="text-xl md:text-3xl font-bold text-white tracking-tight">Aarish</h2>
@@ -108,6 +109,10 @@ export default function Home() {
                 <a href="mailto:aarishmansur@gmail.com" className="p-2 rounded-lg bg-black/25 border border-white/15 text-gray-300 backdrop-blur-md hover:text-white hover:bg-white/10 transition-all">
                   <Mail className="w-5 h-5" />
                 </a>
+
+
+
+
               </div>
 
             </div>
@@ -378,25 +383,10 @@ export default function Home() {
 
 
       <section id="quote" className="animate-blur-fade [animation-delay:800ms]">
-        <div className="rounded-2xl border-r-4 border-white bg-gradient-to-br from-white/[0.03] to-transparent p-8 md:p-10">
-          <div className="flex gap-5">
-            <span className="hidden md:block text-6xl text-blue-400/20 select-none leading-none font-serif" aria-hidden="true">&ldquo;</span>
-            <div className="flex-1">
-              <blockquote>
-                <p className="text-base md:text-lg text-gray-200 leading-relaxed font-medium">
-                  How can you have an affair if you're scared of your wife Dammit !!
-                </p>
-              </blockquote>
-              <div className="mt-5 flex items-center gap-3">
-                <span className="h-px w-8 bg-blue-400/30" />
-                <cite className="text-sm text-gray-400 not-italic font-semibold tracking-wide">Kagura</cite>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Quote />
       </section>
 
-    </div>
+    </ProgressiveBlur>
   );
 }
 
