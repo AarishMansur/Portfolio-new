@@ -94,7 +94,7 @@ const components = {
   },
   blockquote: (props: ComponentProps<'blockquote'>) => (
     <blockquote
-      className="border-l-4 border-blue-500 pl-6 py-2 my-6 italic text-gray-400 bg-white/5 rounded-r-lg"
+      className="border-l-4 border-indigo-500 pl-6 py-3 my-8 italic text-gray-200 bg-gradient-to-r from-indigo-950/30 to-transparent rounded-r-xl shadow-inner font-medium text-lg leading-relaxed"
       {...props}
     />
   ),
