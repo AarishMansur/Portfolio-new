@@ -21,7 +21,7 @@ I've been learning German through YouTube playlists and listening to German podc
 
 # The Solution
 
-I built Johan (aka the **Deutsch Tutor**), an AI-powered voice agent designed to guide you through your German learning journey. It converses with you in German first, but if you don't understand, it translates into English. Best of all, it corrects your grammar and pronunciation on the fly while retaining your conversation state so you can pick up right where you left off!
+I built Johan (aka the **Deutsch Tutor**), an AI powered voice agent designed to guide you through your German learning journey. It converses with you in German first, but if you don't understand, it translates into English. Best of all, it corrects your grammar and pronunciation on the fly while retaining your conversation state so you can pick up right where you left off!
 
 # Under the Hood
 
@@ -43,7 +43,7 @@ One feature that significantly enhances the overall UX is **Specialist Mode**. W
 
 Let's be real: just like life, software engineering isn't a fairytale where everything works smoothly on the first try.
 
-On **Day 4**, our task was to implement long-term memory for our voice agent. Initially, my instinct was to use PostgreSQL hosted on [Neon DB](https://neon.tech/) because I was familiar with it (or so I thought!). However, after encountering multiple runtime errors, I realized I was over-engineering the solution. I pivoted to a lightweight SQLite database. That taught me a crucial lesson: *you don't always need a complex tech stack—make it work first, and optimize later.*
+On **Day 4**, our task was to implement long-term memory for our voice agent. Initially, my instinct was to use PostgreSQL hosted on [Neon DB](https://neon.tech/) because I was familiar with it (or so I thought!). However, after encountering multiple runtime errors, I realized I was over-engineering the solution. I pivoted to a lightweight SQLite database. That taught me a crucial lesson: *you don't always need a complex tech stack make it work first, and optimize later.*
 
 ```ts
 class MemoryStore:
@@ -66,7 +66,7 @@ class MemoryStore:
                 """
             )
 ```
-<p className="text-sm text-center text-gray-400 italic mt-4 mb-6">This class initializes a thread-safe SQLite database connection, ensuring the target directory exists and setting up the users table.</p>
+<p className="text-sm text-center text-gray-400 italic mt-4 mb-6">This class initializes a thread safe SQLite database connection, ensuring the target directory exists and setting up the users table.</p>
 
 
 # Want to Build It Yourself?
@@ -130,8 +130,8 @@ chmod +x start_app.sh
 
 If given the chance to iterate further, here are the key features I'd love to add:
 
-1. **Enhanced UI/UX**: Introduce subtle micro-animations and custom isometric SVG illustrations.
-2. **Lower Latency**: Optimize voice turn-taking and response synthesis time for smoother real-time interaction.
+1. **Enhanced UI/UX**: Introduce subtle micro animations and custom isometric SVG illustrations.
+2. **Lower Latency**: Optimize voice turn taking and response synthesis time for smoother real time interaction.
 3. **Database Migration**: Seamlessly migrate from SQLite to PostgreSQL via [Neon DB](https://neon.tech/) without losing existing session memory.
 4. **Multilingual Expansion**: Add support beyond German to include Japanese, Spanish, and French.
 
